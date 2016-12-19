@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="jquery-1.9.0.min.js"></script>
+    <script src="snap.svg-min.js"></script>
+    <script>
+	    $(function(){
+			var list = $("#list p");
+			$('<svg class="svg"></svg>').insertAfter(list)
+			
+			var svg = $("#list .svg")
+				
+
+				svg.each(function(){
+					s = Snap(100,100);
+					c = s.paper.circle(0,0,5);
+					s.attr({
+						viewBox : "-5,-5,10,10"
+					});
+					c.attr("class", "cir")
+					 s.appendTo(this)
+				});
+				
+			var cir =  $("#list .cir");
+			
+			function getColor(){
+				$(this).attr({
+					fill : "#3fa9f5" ,
+					stroke: "#ff0"
+				});
+			}	
+				
+			cir.each(function(){
+				$(this).click(getColor)
+			})
+				
+		});
+    </script>
+  </head>
+  <body>
+				<h3> Snap.svg </h3>
+				<ul id="list">
+					<li><p>list</p></li>
+					<li><p>list</p></li>
+					<li><p>list</p></li>
+				</ul>
+
+  </body>
+</html>
